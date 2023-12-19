@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Gmail_Client&apos;" deleteContents="true" description="Delete resource &apos;Gmail_Client&apos;" element1="/Gmail_Client" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1703004223241"/>
+</session>

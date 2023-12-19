@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head><title>Google OAuth: Sign-in</title></head>
+<body>
+<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=647784098084-6t1bqntkr7m2csq9dbrog1hv5h56b4hd.apps.googleusercontent.com&amp;response_type=code&amp;scope=openid%20email&a
+mp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F20205203%2Fsession.jsp">Google Sign-in</a>
+</body>
+</html>
+

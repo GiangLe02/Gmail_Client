@@ -1,0 +1,31 @@
+<%@ page import="org.apache.http.Header"%>
+<%@ page import="org.apache.http.HttpEntity"%>
+<%@ page import="org.apache.http.client.ResponseHandler"%>
+<%@ page import="org.apache.http.client.methods.CloseableHttpResponse"%>
+<%@ page import="org.apache.http.client.methods.HttpPost"%>
+<%@ page import="org.apache.http.client.methods.RequestBuilder"%>
+<%@ page import="org.apache.http.entity.ContentType"%>
+<%@ page import="org.apache.http.entity.StringEntity"%>
+<%@ page import="org.apache.http.impl.client.CloseableHttpClient"%>
+<%@ page import="org.apache.http.impl.client.HttpClients"%>
+<%@ page import="org.apache.http.message.BasicHeader"%>
+<%@ page import="org.apache.http.util.EntityUtils"%>
+<%@ page import="org.apache.commons.codec.binary.Base64"%>
+<%@ page import="com.fasterxml.jackson.databind.JsonNode"%>
+<%@ page import="com.fasterxml.jackson.databind.ObjectMapper"%>
+<%@ page import="com.google.gson.JsonArray"%>
+<%@ page import="com.google.gson.JsonElement"%>
+<%@ page import="com.google.gson.JsonObject"%>
+<%@ page import="com.google.gson.JsonParser"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head><title>Google OAuth: Sign-in</title></head>
+<body>
+	<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=4647784098084-6t1bqntkr7m2csq9dbrog1hv5h56b4hd.apps.googleusercontent.com&amp;response_type=code&amp;scope=openid%20email&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FGoogle_OAuth%2Fsession.jsp;login_hint=lenguyenhuonggiang02@gmail.com">Google Sign-in</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head><title>Google OAuth: Sign-in</title></head>
+<body>
+	<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=4647784098084-6t1bqntkr7m2csq9dbrog1hv5h56b4hd.apps.googleusercontent.com&amp;response_type=code&amp;scope=openid%20email&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FGoogle_OAuth%2Fsession.jsp;login_hint=lenguyenhuonggiang02@gmail.com">Google Sign-in</a>
+	<%
+	String code = (String)request.getParameter("code");
+	String scope = (String)request.getParameter("scope");
+	String session_state = (String)request.getParameter("session_state");
+	String prompt = (String)request.getParameter("prompt");
+	%>
+	<h3>Step 1: Google Sign-in result</h3>
+	code: <%=code %><br>
+	scope: <%=scope %><br>
+	session_state: <%=session_state %><br>
+	prompt: <%=prompt %><br>
+	
+	<%
+	String client_id = "404871172965-f12foh07klpoba91muu9l60c9t0gv4hp.apps.googleusercontent.com";
+	String client_secret = "si0dOQrUQExJZvRXrYqvd6zV";
+	- 13 -
+	CloseableHttpClient httpClient = HttpClients.createDefault();
+	HttpPost httpPost = new HttpPost("https://www.googleapis.com/oauth2/v4/token");
+	httpPost.setHeader("content-type", "application/x-www-form-urlencoded");
+	String request_body = "grant_type=authorization_code&" +
+	"code=" + code +
+	"&client_id=404871172965-f12foh07klpoba91muu9l60c9t0gv4hp.apps.googleusercontent.com" +
+	"&client_secret=si0dOQrUQExJZvRXrYqvd6zV" +
+	"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FGoogle_OAuth%2Fsession.jsp";
+	StringEntity entity = new StringEntity(request_body);
+	httpPost.setEntity(entity);
+	
+	CloseableHttpResponse resp = httpClient.execute(httpPost);
+	String return_body = EntityUtils.toString(resp.getEntity());
+	JsonParser parser = new JsonParser();
+	JsonElement jsonTree = parser.parse(return_body);
+	String access_token = jsonTree.getAsJsonObject().get("access_token").toString();
+	String expires_in = jsonTree.getAsJsonObject().get("expires_in").toString();
+	String scope2 = jsonTree.getAsJsonObject().get("scope").toString();
+	String token_type = jsonTree.getAsJsonObject().get("token_type").toString();
+	String id_token = jsonTree.getAsJsonObject().get("id_token").toString();
+	%>				
+	
+</body>
+</html>
